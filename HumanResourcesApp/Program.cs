@@ -9,7 +9,7 @@ namespace HumanResourcesApp
 {
     static class Program
     {
-        public static string FilePath = Path.Combine(Environment.CurrentDirectory, "employees.txt");
+        public static string FilePath = Path.Combine(Environment.CurrentDirectory, "employees.json");
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
