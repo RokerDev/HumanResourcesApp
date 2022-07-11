@@ -45,5 +45,10 @@ namespace HumanResourcesApp
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var addUpdateEmployee = new AddUpdateEmployee();
+            addUpdateEmployee.ShowDialog();
+        }
     }
 }
