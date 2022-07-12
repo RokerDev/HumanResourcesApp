@@ -1,27 +1,28 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HumanResourcesApp
 {
-    class FileHelper
+    class FileHelper<T>
     {
-        public static void SerializeToJsonFile(List<Employee> employees)
+        private string _filePath;
+
+        public FileHelper(string FilePath)
         {
-            File.WriteAllText(Program.FilePath, JsonConvert.SerializeObject(employees));
+            _filePath = FilePath;
         }
 
-        public static List<Employee> DeserializeFromFile()
+        public void SerializeToJsonFile(T Something)
         {
-            List<Employee> employees = 
-                JsonConvert.DeserializeObject<List<Employee>>
-                (File.ReadAllText(Program.FilePath));
+            File.WriteAllText(_filePath, JsonConvert.SerializeObject(Something));
+        }
+
+        public T DeserializeFromFile()
+        {
+            T Something = 
+                JsonConvert.DeserializeObject<T>(File.ReadAllText(_filePath));
             
-            return employees;
+            return Something;
         }
     }
 }
