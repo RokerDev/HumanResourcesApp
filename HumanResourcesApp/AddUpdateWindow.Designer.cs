@@ -151,6 +151,7 @@
             this.Cancel.TabIndex = 14;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // btnConfirm
             // 
@@ -160,6 +161,7 @@
             this.btnConfirm.TabIndex = 15;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnDismiss
             // 
