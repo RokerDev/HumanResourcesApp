@@ -171,6 +171,7 @@
             this.btnDismiss.TabIndex = 16;
             this.btnDismiss.Text = "Dismiss";
             this.btnDismiss.UseVisualStyleBackColor = true;
+            this.btnDismiss.Click += new System.EventHandler(this.btnDismiss_Click);
             // 
             // tbEmployeeId
             // 

@@ -19,9 +19,9 @@ namespace HumanResourcesApp
 
         public T DeserializeFromFile()
         {
-            T Something = 
+            T Something =
                 JsonConvert.DeserializeObject<T>(File.ReadAllText(_filePath));
-            
+
             return Something;
         }
     }
