@@ -174,9 +174,9 @@
             // 
             // tbEmployeeId
             // 
-            this.tbEmployeeId.Enabled = false;
             this.tbEmployeeId.Location = new System.Drawing.Point(101, 12);
             this.tbEmployeeId.Name = "tbEmployeeId";
+            this.tbEmployeeId.ReadOnly = true;
             this.tbEmployeeId.Size = new System.Drawing.Size(126, 20);
             this.tbEmployeeId.TabIndex = 18;
             // 

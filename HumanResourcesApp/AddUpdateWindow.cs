@@ -14,13 +14,41 @@ namespace HumanResourcesApp
     {
         private FileHelper<List<Employee>> _fileHelper = new FileHelper<List<Employee>>(Program.FilePath);
         private int _employeeId;
-        private List<Employee> _employees;
+        private Employee _employee;
+        private List<Employee> _employeesList;
 
         public AddUpdateEmployee(int Id = 0)
         {
             InitializeComponent();
+            LoadListOfEmployees();
             _employeeId = Id;
-            ReloadEmployees();
+            GetEmployeeData();            
+        }
+
+        private void GetEmployeeData()
+        {
+            if (_employeeId != 0)
+            {
+                Text = "Edit Employee Data";
+                _employee = _employeesList.Where(x => x.Id == _employeeId).FirstOrDefault();
+                AssingEmployeeDataToTextBox();
+            }
+            else
+            {
+                btnDismiss.Visible = false;
+                Height = Size.Height - 30;
+            }
+        }
+
+        private void AssingEmployeeDataToTextBox()
+        {
+            tbEmployeeId.Text = _employee.Id.ToString();
+            tbFirstName.Text = _employee.FirstName;
+            tbLastName.Text = _employee.LastName;
+            tbHiring.Text = _employee.HiringDate;
+            tbRelease.Text = _employee.ReleaseDate;
+            tbComments.Text = _employee.Comments;
+            tbSalary.Text = _employee.Salary;
         }
 
         private void AddEditEmployeeData()
@@ -35,28 +63,28 @@ namespace HumanResourcesApp
                 Comments = tbComments.Text,
                 Salary = tbSalary.Text
             };
-            _employees.Add(newEmployee);
+            _employeesList.Add(newEmployee);
         }
 
         private int SetIdForNewEmployee()
         {
-            var highestEmployeeId = _employees.OrderByDescending(x => x.Id).FirstOrDefault();
+            var highestEmployeeId = _employeesList.OrderByDescending(x => x.Id).FirstOrDefault();
             return highestEmployeeId == null ? 1 : highestEmployeeId.Id + 1;
         }
 
-        private void ReloadEmployees()
+        private void LoadListOfEmployees()
         {
-            _employees = _fileHelper.DeserializeFromFile();
+            _employeesList = _fileHelper.DeserializeFromFile();
         }
 
         private void SaveEmployees()
         {
-            _fileHelper.SerializeToJsonFile(_employees);
+            _fileHelper.SerializeToJsonFile(_employeesList);
         }
 
         private void RemoveOldEmployeeData()
         {
-            _employees.RemoveAll(x => x.Id == _employeeId);
+            _employeesList.RemoveAll(x => x.Id == _employeeId);
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -69,6 +97,7 @@ namespace HumanResourcesApp
                 RemoveOldEmployeeData();
 
             AddEditEmployeeData();
+            SaveEmployees();
             Close();
         }
 
