@@ -60,7 +60,7 @@ namespace HumanResourcesApp
                 Id = _employeeId,
                 FirstName = tbFirstName.Text,
                 LastName = tbLastName.Text,
-                HiringDate = dtpHiring.Value,
+                HiringDate = Convert.ToDateTime(dtpHiring.Value.ToShortDateString()),
                 ReleaseDate = _releaseDate,
                 Comments = tbComments.Text,
                 Salary = Convert.ToDecimal(tbSalary.Text),
@@ -108,7 +108,7 @@ namespace HumanResourcesApp
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (_groupId == 2)
-                _releaseDate = dtpRelease.Value;    
+                _releaseDate = Convert.ToDateTime(dtpRelease.Value.ToShortDateString());    
             SaveEmployees();
             Close();
         }

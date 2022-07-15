@@ -243,7 +243,7 @@
         private System.Windows.Forms.Button btnDismiss;
         private System.Windows.Forms.TextBox tbEmployeeId;
         private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.DateTimePicker dtpHiring;
         private System.Windows.Forms.DateTimePicker dtpRelease;
+        private System.Windows.Forms.DateTimePicker dtpHiring;
     }
 }
