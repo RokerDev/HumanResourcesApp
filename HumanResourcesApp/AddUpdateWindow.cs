@@ -14,6 +14,7 @@ namespace HumanResourcesApp
         private Employee _employee;
         private List<Employee> _employeesList;
         private int _groupId;
+        private DateTime? _releaseDate;
 
         public AddUpdateEmployee(int Id = 0)
         {
@@ -36,7 +37,6 @@ namespace HumanResourcesApp
             else
             {
                 btnDismiss.Visible = false;
-                tbHiring.Text = DateTime.Now.Date.ToShortDateString();
                 Height = Size.Height - 30;
             }
         }
@@ -46,10 +46,11 @@ namespace HumanResourcesApp
             tbEmployeeId.Text = _employee.Id.ToString();
             tbFirstName.Text = _employee.FirstName;
             tbLastName.Text = _employee.LastName;
-            tbHiring.Text = _employee.HiringDate;
-            tbRelease.Text = _employee.ReleaseDate;
+            dtpHiring.Value = _employee.HiringDate;
+            if (_employee.ReleaseDate.HasValue)
+                dtpRelease.Value = (DateTime)_employee.ReleaseDate;
             tbComments.Text = _employee.Comments;
-            tbSalary.Text = _employee.Salary;
+            tbSalary.Text = Convert.ToString(_employee.Salary);
         }
 
         private void AddEditEmployeeData()
@@ -59,12 +60,13 @@ namespace HumanResourcesApp
                 Id = _employeeId,
                 FirstName = tbFirstName.Text,
                 LastName = tbLastName.Text,
-                HiringDate = tbHiring.Text,
-                ReleaseDate = tbRelease.Text,
+                HiringDate = dtpHiring.Value,
+                ReleaseDate = _releaseDate,
                 Comments = tbComments.Text,
-                Salary = tbSalary.Text,
+                Salary = Convert.ToDecimal(tbSalary.Text),
                 GroupId = _groupId
             };
+
             _employeesList.Add(newEmployee);
         }
 
@@ -91,6 +93,13 @@ namespace HumanResourcesApp
             _employeesList.RemoveAll(x => x.Id == _employeeId);
         }
 
+        private void Dismiss_Employee()
+        {
+            _groupId = 2;
+            lbReleaseDate.Visible = true;
+            dtpRelease.Visible = true;
+        }
+
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -98,6 +107,8 @@ namespace HumanResourcesApp
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (_groupId == 2)
+                _releaseDate = dtpRelease.Value;    
             SaveEmployees();
             Close();
         }
@@ -112,10 +123,7 @@ namespace HumanResourcesApp
 
             if (userAnswer == DialogResult.Yes)
             {
-                _groupId = 2;
-                tbRelease.Text = DateTime.Now.Date.ToShortDateString();
-                SaveEmployees();
-                Close();
+                Dismiss_Employee();
             }
         }
     }

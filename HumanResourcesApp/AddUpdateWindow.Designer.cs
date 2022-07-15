@@ -32,10 +32,8 @@
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lbLastName = new System.Windows.Forms.Label();
-            this.tbHiring = new System.Windows.Forms.TextBox();
             this.lbHiringDate = new System.Windows.Forms.Label();
-            this.tbRelease = new System.Windows.Forms.TextBox();
-            this.lbEmploymentDate = new System.Windows.Forms.Label();
+            this.lbReleaseDate = new System.Windows.Forms.Label();
             this.tbComments = new System.Windows.Forms.TextBox();
             this.lbComments = new System.Windows.Forms.Label();
             this.tbSalary = new System.Windows.Forms.TextBox();
@@ -45,6 +43,8 @@
             this.btnDismiss = new System.Windows.Forms.Button();
             this.tbEmployeeId = new System.Windows.Forms.TextBox();
             this.lbId = new System.Windows.Forms.Label();
+            this.dtpHiring = new System.Windows.Forms.DateTimePicker();
+            this.dtpRelease = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lbFirstName
@@ -79,41 +79,28 @@
             this.lbLastName.TabIndex = 2;
             this.lbLastName.Text = "Last Name";
             // 
-            // tbHiring
-            // 
-            this.tbHiring.Location = new System.Drawing.Point(101, 90);
-            this.tbHiring.Name = "tbHiring";
-            this.tbHiring.Size = new System.Drawing.Size(126, 20);
-            this.tbHiring.TabIndex = 5;
-            // 
             // lbHiringDate
             // 
             this.lbHiringDate.AutoSize = true;
-            this.lbHiringDate.Location = new System.Drawing.Point(11, 93);
+            this.lbHiringDate.Location = new System.Drawing.Point(10, 145);
             this.lbHiringDate.Name = "lbHiringDate";
             this.lbHiringDate.Size = new System.Drawing.Size(72, 13);
             this.lbHiringDate.TabIndex = 4;
             this.lbHiringDate.Text = "Date of Hiring";
             // 
-            // tbRelease
+            // lbReleaseDate
             // 
-            this.tbRelease.Location = new System.Drawing.Point(101, 116);
-            this.tbRelease.Name = "tbRelease";
-            this.tbRelease.Size = new System.Drawing.Size(126, 20);
-            this.tbRelease.TabIndex = 7;
-            // 
-            // lbEmploymentDate
-            // 
-            this.lbEmploymentDate.AutoSize = true;
-            this.lbEmploymentDate.Location = new System.Drawing.Point(11, 119);
-            this.lbEmploymentDate.Name = "lbEmploymentDate";
-            this.lbEmploymentDate.Size = new System.Drawing.Size(84, 13);
-            this.lbEmploymentDate.TabIndex = 6;
-            this.lbEmploymentDate.Text = "Date of Release";
+            this.lbReleaseDate.AutoSize = true;
+            this.lbReleaseDate.Location = new System.Drawing.Point(10, 171);
+            this.lbReleaseDate.Name = "lbReleaseDate";
+            this.lbReleaseDate.Size = new System.Drawing.Size(84, 13);
+            this.lbReleaseDate.TabIndex = 6;
+            this.lbReleaseDate.Text = "Date of Release";
+            this.lbReleaseDate.Visible = false;
             // 
             // tbComments
             // 
-            this.tbComments.Location = new System.Drawing.Point(101, 142);
+            this.tbComments.Location = new System.Drawing.Point(100, 90);
             this.tbComments.Name = "tbComments";
             this.tbComments.Size = new System.Drawing.Size(126, 20);
             this.tbComments.TabIndex = 11;
@@ -121,7 +108,7 @@
             // lbComments
             // 
             this.lbComments.AutoSize = true;
-            this.lbComments.Location = new System.Drawing.Point(12, 145);
+            this.lbComments.Location = new System.Drawing.Point(11, 93);
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(56, 13);
             this.lbComments.TabIndex = 10;
@@ -129,7 +116,7 @@
             // 
             // tbSalary
             // 
-            this.tbSalary.Location = new System.Drawing.Point(101, 168);
+            this.tbSalary.Location = new System.Drawing.Point(100, 116);
             this.tbSalary.Name = "tbSalary";
             this.tbSalary.Size = new System.Drawing.Size(126, 20);
             this.tbSalary.TabIndex = 13;
@@ -137,7 +124,7 @@
             // lbSalary
             // 
             this.lbSalary.AutoSize = true;
-            this.lbSalary.Location = new System.Drawing.Point(12, 171);
+            this.lbSalary.Location = new System.Drawing.Point(11, 119);
             this.lbSalary.Name = "lbSalary";
             this.lbSalary.Size = new System.Drawing.Size(36, 13);
             this.lbSalary.TabIndex = 12;
@@ -190,11 +177,32 @@
             this.lbId.TabIndex = 17;
             this.lbId.Text = "Employee Id";
             // 
+            // dtpHiring
+            // 
+            this.dtpHiring.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHiring.Location = new System.Drawing.Point(100, 142);
+            this.dtpHiring.Name = "dtpHiring";
+            this.dtpHiring.Size = new System.Drawing.Size(126, 20);
+            this.dtpHiring.TabIndex = 19;
+            this.dtpHiring.Value = new System.DateTime(2022, 7, 15, 12, 1, 59, 0);
+            // 
+            // dtpRelease
+            // 
+            this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpRelease.Location = new System.Drawing.Point(100, 168);
+            this.dtpRelease.Name = "dtpRelease";
+            this.dtpRelease.Size = new System.Drawing.Size(126, 20);
+            this.dtpRelease.TabIndex = 20;
+            this.dtpRelease.Value = new System.DateTime(2022, 7, 15, 10, 17, 0, 0);
+            this.dtpRelease.Visible = false;
+            // 
             // AddUpdateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 252);
+            this.ClientSize = new System.Drawing.Size(239, 258);
+            this.Controls.Add(this.dtpRelease);
+            this.Controls.Add(this.dtpHiring);
             this.Controls.Add(this.tbEmployeeId);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.btnDismiss);
@@ -204,9 +212,7 @@
             this.Controls.Add(this.lbSalary);
             this.Controls.Add(this.tbComments);
             this.Controls.Add(this.lbComments);
-            this.Controls.Add(this.tbRelease);
-            this.Controls.Add(this.lbEmploymentDate);
-            this.Controls.Add(this.tbHiring);
+            this.Controls.Add(this.lbReleaseDate);
             this.Controls.Add(this.lbHiringDate);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbLastName);
@@ -226,10 +232,8 @@
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lbLastName;
-        private System.Windows.Forms.TextBox tbHiring;
         private System.Windows.Forms.Label lbHiringDate;
-        private System.Windows.Forms.TextBox tbRelease;
-        private System.Windows.Forms.Label lbEmploymentDate;
+        private System.Windows.Forms.Label lbReleaseDate;
         private System.Windows.Forms.TextBox tbComments;
         private System.Windows.Forms.Label lbComments;
         private System.Windows.Forms.TextBox tbSalary;
@@ -239,5 +243,7 @@
         private System.Windows.Forms.Button btnDismiss;
         private System.Windows.Forms.TextBox tbEmployeeId;
         private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.DateTimePicker dtpHiring;
+        private System.Windows.Forms.DateTimePicker dtpRelease;
     }
 }
