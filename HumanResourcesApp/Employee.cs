@@ -1,4 +1,6 @@
-﻿namespace HumanResourcesApp
+﻿using System;
+
+namespace HumanResourcesApp
 {
     class Employee
     {
@@ -8,13 +10,13 @@
 
         public string LastName { get; set; }
 
-        public string HiringDate { get; set; }
+        public DateTime HiringDate { get; set; }
 
-        public string ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
 
         public string Comments { get; set; }
 
-        public string Salary { get; set; }
+        public decimal Salary { get; set; }
 
         public int GroupId { get; set; }
     }
