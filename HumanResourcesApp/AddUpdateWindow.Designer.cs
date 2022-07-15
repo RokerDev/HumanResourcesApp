@@ -36,7 +36,6 @@
             this.lbReleaseDate = new System.Windows.Forms.Label();
             this.tbComments = new System.Windows.Forms.TextBox();
             this.lbComments = new System.Windows.Forms.Label();
-            this.tbSalary = new System.Windows.Forms.TextBox();
             this.lbSalary = new System.Windows.Forms.Label();
             this.Cancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -45,6 +44,8 @@
             this.lbId = new System.Windows.Forms.Label();
             this.dtpHiring = new System.Windows.Forms.DateTimePicker();
             this.dtpRelease = new System.Windows.Forms.DateTimePicker();
+            this.nudSalary = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // lbFirstName
@@ -113,13 +114,6 @@
             this.lbComments.Size = new System.Drawing.Size(56, 13);
             this.lbComments.TabIndex = 10;
             this.lbComments.Text = "Comments";
-            // 
-            // tbSalary
-            // 
-            this.tbSalary.Location = new System.Drawing.Point(100, 116);
-            this.tbSalary.Name = "tbSalary";
-            this.tbSalary.Size = new System.Drawing.Size(126, 20);
-            this.tbSalary.TabIndex = 13;
             // 
             // lbSalary
             // 
@@ -196,11 +190,30 @@
             this.dtpRelease.Value = new System.DateTime(2022, 7, 15, 10, 17, 0, 0);
             this.dtpRelease.Visible = false;
             // 
+            // nudSalary
+            // 
+            this.nudSalary.Location = new System.Drawing.Point(100, 116);
+            this.nudSalary.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.nudSalary.Name = "nudSalary";
+            this.nudSalary.Size = new System.Drawing.Size(126, 20);
+            this.nudSalary.TabIndex = 21;
+            this.nudSalary.ThousandsSeparator = true;
+            this.nudSalary.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
             // AddUpdateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(239, 258);
+            this.Controls.Add(this.nudSalary);
             this.Controls.Add(this.dtpRelease);
             this.Controls.Add(this.dtpHiring);
             this.Controls.Add(this.tbEmployeeId);
@@ -208,7 +221,6 @@
             this.Controls.Add(this.btnDismiss);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.Cancel);
-            this.Controls.Add(this.tbSalary);
             this.Controls.Add(this.lbSalary);
             this.Controls.Add(this.tbComments);
             this.Controls.Add(this.lbComments);
@@ -221,6 +233,7 @@
             this.Name = "AddUpdateEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add New Employee";
+            ((System.ComponentModel.ISupportInitialize)(this.nudSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,7 +249,6 @@
         private System.Windows.Forms.Label lbReleaseDate;
         private System.Windows.Forms.TextBox tbComments;
         private System.Windows.Forms.Label lbComments;
-        private System.Windows.Forms.TextBox tbSalary;
         private System.Windows.Forms.Label lbSalary;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button btnConfirm;
@@ -245,5 +257,6 @@
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.DateTimePicker dtpRelease;
         private System.Windows.Forms.DateTimePicker dtpHiring;
+        private System.Windows.Forms.NumericUpDown nudSalary;
     }
 }

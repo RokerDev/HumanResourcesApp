@@ -50,7 +50,7 @@ namespace HumanResourcesApp
             if (_employee.ReleaseDate.HasValue)
                 dtpRelease.Value = (DateTime)_employee.ReleaseDate;
             tbComments.Text = _employee.Comments;
-            tbSalary.Text = Convert.ToString(_employee.Salary);
+            nudSalary.Value = _employee.Salary;
         }
 
         private void AddEditEmployeeData()
@@ -63,7 +63,7 @@ namespace HumanResourcesApp
                 HiringDate = Convert.ToDateTime(dtpHiring.Value.ToShortDateString()),
                 ReleaseDate = _releaseDate,
                 Comments = tbComments.Text,
-                Salary = Convert.ToDecimal(tbSalary.Text),
+                Salary = nudSalary.Value,
                 GroupId = _groupId
             };
 
