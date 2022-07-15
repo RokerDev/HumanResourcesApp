@@ -3,7 +3,7 @@ using System.IO;
 
 namespace HumanResourcesApp
 {
-    class FileHelper<T>
+    class FileHelper<T> where T : new()
     {
         private string _filePath;
 
@@ -19,10 +19,22 @@ namespace HumanResourcesApp
 
         public T DeserializeFromFile()
         {
-            T Something =
-                JsonConvert.DeserializeObject<T>(File.ReadAllText(_filePath));
+            if (!File.Exists(_filePath))
+                return new T();
 
-            return Something;
+            return JsonConvert.DeserializeObject<T>(File.ReadAllText(_filePath));
+
+            //czy moze lepiej 
+
+            //try
+            //{
+            //   return JsonConvert.DeserializeObject<T>(File.ReadAllText(_filePath));
+            //}
+            //catch (System.Exception)
+            //{
+            //    return new T();
+            //}
+
         }
     }
 }
